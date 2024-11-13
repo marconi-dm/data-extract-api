@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 // Importa a função de tratamento de dados
-const processExcel = require('./data/data_processing');
+const processExcel = require('../data/data_processing');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
