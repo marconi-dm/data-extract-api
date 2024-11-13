@@ -4,10 +4,9 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 // Importa a função de tratamento de dados
-const processExcel = require('../data/data_processing');
+const processExcel = require('../data/data_processing'); // Certifique-se de que o caminho esteja correto
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
 // Configuração do armazenamento do Multer
 const storage = multer.diskStorage({
@@ -46,7 +45,5 @@ app.post('/upload', upload.single('file'), (req, res) => {
     }
 });
 
-// Inicializa o servidor
-// app.listen(PORT, () => {
-//     console.log(`Servidor rodando em http://localhost:${PORT}`);
-// });
+// Exporta o app para que o Vercel possa utilizá-lo como uma função serverless
+module.exports = app;
