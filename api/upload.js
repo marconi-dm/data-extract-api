@@ -1,5 +1,6 @@
 // 1º vamos importar as dependências
 const express = require('express');
+const cors = require('cors');
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -7,7 +8,7 @@ const fs = require('fs');
 const processExcel = require('../data/data_processing'); // Certifique-se de que o caminho esteja correto
 
 const app = express();
-
+app.use(cors());
 // Configuração do armazenamento do Multer
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
