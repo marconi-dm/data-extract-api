@@ -5,7 +5,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 // Importa a função de tratamento de dados
-const processExcel = require('../data/data_processing'); // Certifique-se de que o caminho esteja correto
+const processExcel = require('../data/data_processing');
 
 const app = express();
 app.use(cors());
@@ -23,7 +23,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 // Rota principal para upload e conversão do arquivo .xlsx para JSON
-app.post('/upload', upload.single('file'), (req, res) => {  // Define a rota como "/"
+app.post('/upload', upload.single('file'), (req, res) => {
     if (!req.file) {
         return res.status(400).send('Nenhum arquivo enviado.');
     }
